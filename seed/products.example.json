@@ -1,0 +1,14 @@
+[
+  {
+    "legacyId": "sample-1",
+    "name": "نمونه محصول همگام",
+    "title": "نمونه محصول همگام",
+    "price": 120000,
+    "category": "ظروف پلاستیکی",
+    "image": "/images/sample-product.webp",
+    "description": "این فایل نمونه است؛ محصولات hardcoded فعلی سایت را با همین ساختار وارد seed/products.json کنید.",
+    "rating": 4.5,
+    "stock": 25,
+    "isAvailable": true
+  }
+]

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ورود پنل مدیریت | همگام پلاستیک</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body class="admin-login-page">
+  <main class="login-shell">
+    <section class="login-panel glass">
+      <div class="brand-mark">HP</div>
+      <h1>ورود مدیران</h1>
+      <p>برای مدیریت محصولات، سفارش‌ها و تنظیمات سایت وارد شوید.</p>
+      <form id="admin-login-form" class="admin-form">
+        <label>ایمیل یا شماره موبایل
+          <input name="identifier" autocomplete="username" required>
+        </label>
+        <label>رمز عبور
+          <input name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button class="primary-btn" type="submit">ورود به پنل</button>
+        <div id="login-message" class="form-message"></div>
+      </form>
+    </section>
+  </main>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

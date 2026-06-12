@@ -1,0 +1,9 @@
+node_modules
+npm-debug.log
+.env
+.git
+.DS_Store
+public/.DS_Store
+__MACOSX
+outputs
+work

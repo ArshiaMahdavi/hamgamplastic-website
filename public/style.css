@@ -1,0 +1,793 @@
+/* Hamgam Plastic Parsian premium RTL design system */
+:root {
+  color-scheme: dark;
+  --font-persian: "Yekan Bakh", "IRANSansX", "Dana", "Peyda", "Vazirmatn", Tahoma, Arial, sans-serif;
+  --bg-0: #05070d;
+  --bg-1: #09111d;
+  --bg-2: #101b2a;
+  --surface: rgba(13, 23, 36, 0.74);
+  --surface-strong: rgba(17, 27, 42, 0.92);
+  --surface-soft: rgba(255, 255, 255, 0.055);
+  --line: rgba(159, 178, 203, 0.16);
+  --line-strong: rgba(255, 255, 255, 0.2);
+  --text: #edf5ff;
+  --muted: #a9b8c8;
+  --muted-2: #748397;
+  --gold: #f7c948;
+  --gold-2: #f59e0b;
+  --cyan: #38d9ff;
+  --green: #54d39a;
+  --red: #ff6b75;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
+  --shadow-soft: 0 14px 50px rgba(0, 0, 0, 0.24);
+  --max: 1240px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  direction: rtl;
+  font-family: var(--font-persian);
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: 0;
+  color: var(--text) !important;
+  background:
+    linear-gradient(135deg, rgba(56, 217, 255, 0.06), transparent 32%),
+    linear-gradient(225deg, rgba(247, 201, 72, 0.08), transparent 36%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 48%, #070b12 100%) !important;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(115deg, rgba(56, 217, 255, 0.04), transparent 26%, rgba(247, 201, 72, 0.035) 58%, transparent 82%);
+  background-size: 72px 72px, 72px 72px, 100% 100%;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.45));
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 34vh;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(3, 7, 12, 0.96), transparent);
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a,
+input,
+textarea {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(56, 217, 255, 0.85) !important;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: rgba(247, 201, 72, 0.28);
+  color: #fff;
+}
+
+.container {
+  width: min(100%, var(--max)) !important;
+}
+
+.section-title,
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-persian);
+  color: var(--text) !important;
+  letter-spacing: 0;
+}
+
+.section-title {
+  position: relative;
+  font-weight: 900 !important;
+  line-height: 1.24 !important;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 86px;
+  height: 3px;
+  margin-top: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+}
+
+.text-center .section-title::after,
+.section-title.text-center::after {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #fff2a6, var(--gold), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card,
+.invoice-container {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius-lg) !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.095), rgba(255, 255, 255, 0.028)),
+    var(--surface) !important;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px) saturate(130%);
+}
+
+.glass-card::before,
+.invoice-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.14), transparent 22%, transparent 68%, rgba(56, 217, 255, 0.08)),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.055), transparent 38%);
+  opacity: 0.88;
+}
+
+.glass-card > *,
+.invoice-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary,
+.btn-whatsapp,
+button[type="submit"],
+#submit-payment-btn,
+#whatsapp-checkout-btn {
+  min-height: 46px;
+  border: 0;
+  border-radius: var(--radius) !important;
+  background:
+    linear-gradient(135deg, #ffe58a 0%, var(--gold) 34%, var(--gold-2) 100%) !important;
+  color: #101620 !important;
+  font-weight: 900 !important;
+  box-shadow: 0 14px 30px rgba(245, 158, 11, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #60e6a5 0%, #25d366 45%, #0b8f73 100%) !important;
+  color: #04120d !important;
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.22);
+}
+
+.btn-primary:hover:not(:disabled),
+.btn-whatsapp:hover:not(:disabled),
+button[type="submit"]:hover:not(:disabled),
+#submit-payment-btn:hover:not(:disabled),
+#whatsapp-checkout-btn:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.01) !important;
+  filter: saturate(1.08);
+  box-shadow: 0 18px 42px rgba(245, 158, 11, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+button:disabled,
+.btn-primary:disabled,
+.btn-whatsapp:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.58 !important;
+  transform: none !important;
+}
+
+/* Header and navigation */
+#main-header,
+.main-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09) !important;
+  background: rgba(5, 10, 18, 0.72) !important;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24) !important;
+  backdrop-filter: blur(20px) saturate(125%);
+}
+
+#main-header nav {
+  min-height: 66px;
+}
+
+#logo-link img,
+#logo-img {
+  max-height: 58px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.38));
+}
+
+#main-header ul a {
+  position: relative;
+  padding: 8px 0;
+  color: rgba(237, 245, 255, 0.86) !important;
+}
+
+#main-header ul a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+  transition: width 220ms ease;
+}
+
+#main-header ul a:hover,
+#main-header ul a.text-amber-300,
+#main-header ul a.font-bold {
+  color: var(--gold) !important;
+}
+
+#main-header ul a:hover::after,
+#main-header ul a.text-amber-300::after,
+#main-header ul a.font-bold::after {
+  width: 100%;
+}
+
+#cart-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+#cart-link:hover {
+  color: var(--gold) !important;
+  border-color: rgba(247, 201, 72, 0.4);
+  background: rgba(247, 201, 72, 0.08);
+}
+
+#cart-counter {
+  top: -7px !important;
+  right: -8px !important;
+  width: 22px !important;
+  height: 22px !important;
+  border: 2px solid #07101b;
+  background: var(--gold) !important;
+  color: #08111c !important;
+}
+
+#mobile-toggle,
+#mobile-close {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.065);
+  color: #fff;
+}
+
+#mobile-menu {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(160deg, rgba(8, 15, 26, 0.97), rgba(13, 28, 44, 0.94)),
+    linear-gradient(90deg, rgba(56, 217, 255, 0.12), transparent 38%, rgba(247, 201, 72, 0.1)) !important;
+  backdrop-filter: blur(22px) saturate(140%) !important;
+  transform: translateY(-10px);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+#mobile-menu.hidden {
+  display: none;
+}
+
+body.menu-open #mobile-menu {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0);
+}
+
+body.menu-open #logo-link,
+body.menu-open #cart-link,
+body.menu-open #user-display {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.menu-open #mobile-toggle .fa-bars {
+  display: none !important;
+}
+
+body.menu-open #mobile-toggle .fa-times {
+  display: block !important;
+}
+
+#mobile-menu a {
+  display: block;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  color: #fff;
+}
+
+#mobile-menu a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--gold);
+}
+
+/* Homepage */
+#hero {
+  isolation: isolate;
+  min-height: 88vh;
+  background: #03070d;
+}
+
+#hero::after,
+main > section.relative.py-24::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(3, 7, 13, 0.9), rgba(3, 7, 13, 0.22) 44%, rgba(3, 7, 13, 0.76)),
+    linear-gradient(to top, var(--bg-0), transparent 34%);
+  z-index: 1;
+}
+
+#hero .relative.z-10,
+main > section.relative.py-24 > .relative.z-10 {
+  z-index: 2;
+}
+
+.hero-swiper-slide .slide-bg,
+.slide-bg {
+  filter: saturate(0.95) contrast(1.1);
+}
+
+#hero h1 {
+  text-shadow: 0 18px 58px rgba(0, 0, 0, 0.56);
+  letter-spacing: 0;
+}
+
+#hero p {
+  color: rgba(237, 245, 255, 0.86) !important;
+}
+
+.swiper-pagination-bullet {
+  width: 28px !important;
+  height: 4px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.42) !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: linear-gradient(90deg, var(--gold), var(--cyan)) !important;
+}
+
+section {
+  position: relative;
+}
+
+.bg-slate-800,
+.bg-slate-900 {
+  background-color: transparent !important;
+}
+
+main > section,
+main > div.container,
+footer > .container {
+  position: relative;
+}
+
+main > section.py-24,
+main > section.py-16,
+main > div.container {
+  padding-top: clamp(4rem, 8vw, 7rem) !important;
+  padding-bottom: clamp(4rem, 8vw, 7rem) !important;
+}
+
+.industrial-hero-bg {
+  background:
+    linear-gradient(120deg, rgba(56, 217, 255, 0.18), transparent 32%),
+    linear-gradient(260deg, rgba(247, 201, 72, 0.17), transparent 42%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px 90px),
+    linear-gradient(180deg, #121d2c, #070b12) !important;
+}
+
+main > section.relative.py-24,
+main > section.relative.py-24.md\:py-32 {
+  min-height: 330px;
+  background:
+    linear-gradient(120deg, rgba(56, 217, 255, 0.14), transparent 30%),
+    linear-gradient(250deg, rgba(247, 201, 72, 0.16), transparent 45%),
+    linear-gradient(180deg, #111c2c, #08101c) !important;
+  border-bottom: 1px solid var(--line);
+}
+
+main > section.relative.py-24 h1 {
+  max-width: 920px;
+  margin-inline: auto;
+  font-weight: 950 !important;
+}
+
+.category-showcase,
+.trust-strip,
+.quality-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+  box-shadow: var(--shadow-soft);
+}
+
+.category-chip,
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.055);
+  color: rgba(237, 245, 255, 0.9);
+}
+
+.category-chip i,
+.trust-chip i {
+  color: var(--gold);
+}
+
+/* Products and catalog */
+#products-grid {
+  align-items: stretch;
+}
+
+.product-card {
+  height: 100%;
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(247, 201, 72, 0.36) !important;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(247, 201, 72, 0.08);
+}
+
+.product-card .product-link > div:first-child,
+.product-card [style*="translateZ(20px)"],
+#main-image {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.08), transparent 38%),
+    linear-gradient(145deg, rgba(11, 18, 30, 0.85), rgba(20, 33, 50, 0.68)) !important;
+}
+
+.product-card img,
+#main-image {
+  filter: drop-shadow(0 22px 26px rgba(0, 0, 0, 0.42));
+}
+
+.product-card h4 {
+  min-height: 72px;
+  line-height: 1.55 !important;
+}
+
+.product-card .add-to-cart-btn,
+.quantity-btn,
+.remove-btn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.product-card .add-to-cart-btn:hover,
+.quantity-btn:hover {
+  background: var(--gold) !important;
+  color: #101620 !important;
+}
+
+#category-filters .category-btn {
+  border: 1px solid transparent;
+  color: rgba(237, 245, 255, 0.82);
+}
+
+#category-filters .category-btn.active,
+#category-filters .category-btn:hover {
+  border-color: rgba(247, 201, 72, 0.28);
+  background: rgba(247, 201, 72, 0.1) !important;
+  color: #fff !important;
+}
+
+/* Forms, cart and checkout */
+input,
+textarea,
+select {
+  border: 1px solid rgba(159, 178, 203, 0.22) !important;
+  border-radius: var(--radius) !important;
+  background: rgba(7, 13, 22, 0.62) !important;
+  color: var(--text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(169, 184, 200, 0.62) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(56, 217, 255, 0.65) !important;
+  box-shadow: 0 0 0 4px rgba(56, 217, 255, 0.12) !important;
+}
+
+label {
+  color: rgba(237, 245, 255, 0.82) !important;
+}
+
+#cart-items-list .glass-card,
+#summary-items-list > div {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.quantity-input {
+  appearance: textfield;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.stepper-line {
+  background: linear-gradient(90deg, rgba(116, 131, 151, 0.32), rgba(56, 217, 255, 0.22), rgba(116, 131, 151, 0.32)) !important;
+}
+
+.stepper-circle {
+  border-radius: var(--radius) !important;
+}
+
+.stepper-item.active .stepper-circle {
+  background: linear-gradient(135deg, var(--gold), var(--gold-2)) !important;
+  border-color: transparent !important;
+}
+
+.stepper-item.completed .stepper-circle {
+  background: rgba(84, 211, 154, 0.14) !important;
+  border-color: rgba(84, 211, 154, 0.4) !important;
+  color: var(--green) !important;
+}
+
+/* Payment result and invoice */
+#result-container {
+  box-shadow: var(--shadow);
+}
+
+#result-container .fa-check-circle {
+  color: var(--green) !important;
+}
+
+#result-container .fa-times-circle {
+  color: var(--red) !important;
+}
+
+.invoice-container table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.invoice-container th {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.invoice-container td,
+.invoice-container th {
+  border-color: rgba(255, 255, 255, 0.09) !important;
+}
+
+/* Login */
+.video-bg {
+  display: none !important;
+}
+
+body:has(#login-form) {
+  background:
+    linear-gradient(90deg, rgba(5, 7, 13, 0.84), rgba(5, 7, 13, 0.58)),
+    linear-gradient(135deg, rgba(56, 217, 255, 0.12), transparent 32%),
+    linear-gradient(225deg, rgba(247, 201, 72, 0.14), transparent 42%),
+    linear-gradient(180deg, #101b2a, #05070d) !important;
+}
+
+body:has(#login-form) main {
+  width: min(100%, 460px);
+}
+
+.tab-btn {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.tab-btn.active {
+  color: var(--gold) !important;
+  border-color: var(--gold) !important;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--line) !important;
+  background:
+    linear-gradient(180deg, rgba(8, 15, 25, 0.35), rgba(4, 7, 13, 0.96)),
+    rgba(4, 7, 13, 0.96) !important;
+}
+
+footer a {
+  transition: color 180ms ease;
+}
+
+footer a:hover {
+  color: var(--gold) !important;
+}
+
+.cart-notification {
+  right: auto !important;
+  left: 20px !important;
+  z-index: 1200 !important;
+  border: 1px solid rgba(84, 211, 154, 0.28);
+  border-radius: var(--radius) !important;
+  background: rgba(8, 18, 28, 0.92) !important;
+  box-shadow: var(--shadow-soft) !important;
+  backdrop-filter: blur(16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  #main-header nav {
+    min-height: 62px;
+  }
+
+  #hero {
+    min-height: 760px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    line-height: 1.9;
+  }
+
+  #hero {
+    min-height: 680px;
+  }
+
+  #hero h1,
+  main > section.relative.py-24 h1 {
+    font-size: clamp(2.05rem, 11vw, 3.5rem) !important;
+    line-height: 1.35 !important;
+  }
+
+  main > section.py-24,
+  main > section.py-16,
+  main > div.container {
+    padding-top: 4.25rem !important;
+    padding-bottom: 4.25rem !important;
+  }
+
+  .glass-card {
+    border-radius: var(--radius) !important;
+  }
+
+  .btn-primary,
+  .btn-whatsapp,
+  button[type="submit"],
+  #submit-payment-btn,
+  #whatsapp-checkout-btn {
+    width: 100%;
+    min-height: 50px;
+  }
+
+  #cart-content,
+  #checkout-content,
+  #payment-content {
+    gap: 1.25rem !important;
+  }
+
+  .stepper-label {
+    font-size: 0.78rem !important;
+  }
+
+  .cart-notification {
+    right: 14px !important;
+    left: 14px !important;
+    bottom: 14px !important;
+  }
+}
+
+@media print {
+  body,
+  body::before,
+  body::after {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  #main-header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  .invoice-container,
+  .glass-card {
+    border: 1px solid #cbd5e1 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    color: #000 !important;
+  }
+
+  .invoice-container *,
+  .glass-card * {
+    color: #000 !important;
+  }
+}
