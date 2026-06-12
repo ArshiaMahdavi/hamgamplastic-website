@@ -45,6 +45,8 @@ https://hamgamplastic.com
 
 هدف این پروژه ایجاد یک حضور آنلاین حرفه‌ای برای شرکت، ساده‌تر کردن فرآیند معرفی محصولات و فراهم کردن امکان ثبت سفارش برای مشتریان است.
 
+Product images are stored on the production server and omitted from the repository to keep the repository lightweight.
+
 ## 👨‍💻 Developer
 
 **Arshia Mahdavi**
